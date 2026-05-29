@@ -7,212 +7,137 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0d1b2a;
-    --gold: #c9a84c;
-    --gold-light: #e8c97a;
-    --cream: #f7f3ec;
-    --white: #ffffff;
-    --gray: #6b7280;
-    --red: #c0392b;
-    --green: #27ae60;
+    --navy: #0d1b2a; --gold: #c9a84c; --gold-light: #e8c97a;
+    --cream: #f7f3ec; --white: #ffffff; --gray: #6b7280;
+    --red: #c0392b; --green: #27ae60;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--navy); font-family: 'DM Sans', sans-serif; min-height: 100vh; color: var(--navy);
+    background-image: radial-gradient(ellipse at 20% 0%, rgba(201,168,76,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.08) 0%, transparent 50%); }
 
-  body {
-    background: var(--navy);
-    font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
-    color: var(--navy);
-    background-image:
-      radial-gradient(ellipse at 20% 0%, rgba(201,168,76,0.12) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.08) 0%, transparent 50%);
-  }
+  .admin-nav { display:flex; justify-content:flex-end; padding:10px 20px; }
+  .btn-admin { display:inline-flex; align-items:center; gap:6px; padding:8px 16px;
+    background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.4);
+    color:var(--gold); font-size:12px; font-weight:600; letter-spacing:1px;
+    text-transform:uppercase; border-radius:100px; cursor:pointer; transition:all 0.2s; }
+  .btn-admin:hover { background:rgba(201,168,76,0.28); }
 
-  .hero {
-    background: var(--navy);
-    padding: 48px 24px 56px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; left: 50%;
-    transform: translateX(-50%);
-    width: 500px; height: 500px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .rings { display: flex; justify-content: center; gap: 6px; margin-bottom: 28px; }
-  .ring { width: 36px; height: 36px; border-radius: 50%; border: 3.5px solid; animation: float 3s ease-in-out infinite; }
-  .ring:nth-child(1) { border-color: #3b82f6; animation-delay: 0s; }
-  .ring:nth-child(2) { border-color: var(--gold); animation-delay: 0.2s; }
-  .ring:nth-child(3) { border-color: #10b981; animation-delay: 0.4s; }
-  .ring:nth-child(4) { border-color: #ef4444; animation-delay: 0.6s; }
-  .ring:nth-child(5) { border-color: var(--gold-light); animation-delay: 0.8s; }
-
+  .hero { background:var(--navy); padding:48px 24px 56px; text-align:center; position:relative; overflow:hidden; }
+  .hero::before { content:''; position:absolute; top:-60px; left:50%; transform:translateX(-50%);
+    width:500px; height:500px; border-radius:50%;
+    background:radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%); pointer-events:none; }
+  .rings { display:flex; justify-content:center; gap:6px; margin-bottom:28px; }
+  .ring { width:36px; height:36px; border-radius:50%; border:3.5px solid; animation:float 3s ease-in-out infinite; }
+  .ring:nth-child(1){border-color:#3b82f6;animation-delay:0s}.ring:nth-child(2){border-color:var(--gold);animation-delay:0.2s}
+  .ring:nth-child(3){border-color:#10b981;animation-delay:0.4s}.ring:nth-child(4){border-color:#ef4444;animation-delay:0.6s}
+  .ring:nth-child(5){border-color:var(--gold-light);animation-delay:0.8s}
   @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-
-  .hero-tag {
-    display: inline-block;
-    background: rgba(201,168,76,0.15);
-    border: 1px solid rgba(201,168,76,0.4);
-    color: var(--gold);
-    font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase;
-    padding: 6px 16px; border-radius: 100px; margin-bottom: 20px;
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 6vw, 54px); font-weight: 900;
-    color: var(--white); line-height: 1.1; margin-bottom: 12px;
-  }
-  .hero h1 span { color: var(--gold); }
-  .hero-sub { color: rgba(255,255,255,0.55); font-size: 15px; font-weight: 300; margin-bottom: 20px; }
-
-  .date-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 12px; padding: 10px 20px; color: var(--white); font-size: 14px; font-weight: 500;
-  }
+  .hero-tag { display:inline-block; background:rgba(201,168,76,0.15); border:1px solid rgba(201,168,76,0.4);
+    color:var(--gold); font-size:11px; font-weight:500; letter-spacing:2.5px; text-transform:uppercase;
+    padding:6px 16px; border-radius:100px; margin-bottom:20px; }
+  .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(32px,6vw,54px); font-weight:900;
+    color:var(--white); line-height:1.1; margin-bottom:12px; }
+  .hero h1 span { color:var(--gold); }
+  .hero-sub { color:rgba(255,255,255,0.55); font-size:15px; font-weight:300; margin-bottom:20px; }
+  .date-badge { display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+    border-radius:12px; padding:10px 20px; color:var(--white); font-size:14px; font-weight:500; }
   .date-badge .dot { width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
 
-  .form-wrap { max-width: 680px; margin: 0 auto; padding: 0 16px 60px; }
-
-  .card {
-    background: var(--white); border-radius: 20px; padding: 32px 28px; margin-bottom: 16px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
-    opacity: 0; transform: translateY(20px); animation: slideUp 0.5s ease forwards;
-  }
+  .form-wrap { max-width:680px; margin:0 auto; padding:0 16px 60px; }
+  .card { background:var(--white); border-radius:20px; padding:32px 28px; margin-bottom:16px;
+    box-shadow:0 4px 24px rgba(0,0,0,0.18); opacity:0; transform:translateY(20px); animation:slideUp 0.5s ease forwards; }
   @keyframes slideUp { to { opacity:1; transform:translateY(0); } }
-  .card:nth-child(1){animation-delay:0.1s}.card:nth-child(2){animation-delay:0.2s}
-  .card:nth-child(3){animation-delay:0.3s}.card:nth-child(4){animation-delay:0.4s}
-  .card:nth-child(5){animation-delay:0.5s}.card:nth-child(6){animation-delay:0.6s}
-
-  .card-number {
-    display:inline-flex;align-items:center;justify-content:center;
+  .card:nth-child(1){animation-delay:.1s}.card:nth-child(2){animation-delay:.2s}
+  .card:nth-child(3){animation-delay:.3s}.card:nth-child(4){animation-delay:.4s}
+  .card:nth-child(5){animation-delay:.5s}.card:nth-child(6){animation-delay:.6s}
+  .card-number { display:inline-flex;align-items:center;justify-content:center;
     width:28px;height:28px;background:var(--navy);color:var(--gold);
-    border-radius:50%;font-size:12px;font-weight:700;margin-bottom:12px;
-  }
+    border-radius:50%;font-size:12px;font-weight:700;margin-bottom:12px; }
   .card h2 { font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.3; }
   .card p.hint { color:var(--gray);font-size:13px;margin-bottom:20px;line-height:1.5; }
 
   .participate-options { display:grid;grid-template-columns:1fr 1fr;gap:12px; }
-  .participate-btn {
-    display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 16px;
+  .participate-btn { display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 16px;
     border:2px solid #e5e7eb;border-radius:14px;background:var(--cream);cursor:pointer;
-    transition:all 0.2s;font-family:'DM Sans',sans-serif;color:var(--navy);font-size:15px;font-weight:500;
-  }
+    transition:all 0.2s;font-family:'DM Sans',sans-serif;color:var(--navy);font-size:15px;font-weight:500; }
   .participate-btn .icon{font-size:28px;}
   .participate-btn:hover{border-color:var(--gold);background:#fdf8ee;}
   .participate-btn.selected{border-color:var(--gold);background:linear-gradient(135deg,#fdf8ee,#fff8e0);box-shadow:0 0 0 3px rgba(201,168,76,0.2);}
 
   .sports-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px; }
-  .sport-card {
-    display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;
+  .sport-card { display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;
     border:2px solid #e5e7eb;border-radius:14px;background:var(--cream);cursor:pointer;
-    transition:all 0.2s;font-family:'DM Sans',sans-serif;color:var(--navy);font-size:12px;font-weight:500;text-align:center;line-height:1.3;
-  }
+    transition:all 0.2s;font-family:'DM Sans',sans-serif;color:var(--navy);font-size:12px;font-weight:500;text-align:center;line-height:1.3; }
   .sport-card .sport-icon{font-size:26px;}
   .sport-card:hover{border-color:var(--gold);background:#fdf8ee;transform:translateY(-2px);}
   .sport-card.selected{border-color:var(--gold);background:linear-gradient(135deg,#fdf8ee,#fff8e0);box-shadow:0 0 0 3px rgba(201,168,76,0.2);}
 
   .gender-row { display:flex;gap:10px;margin-top:14px;flex-wrap:wrap; }
-  .gender-btn {
-    flex:1;min-width:100px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;
+  .gender-btn { flex:1;min-width:100px;padding:10px 16px;border:2px solid #e5e7eb;border-radius:10px;
     background:var(--cream);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;
-    font-weight:500;color:var(--navy);transition:all 0.2s;text-align:center;
-  }
+    font-weight:500;color:var(--navy);transition:all 0.2s;text-align:center; }
   .gender-btn:hover{border-color:var(--navy);}
   .gender-btn.selected{border-color:var(--navy);background:var(--navy);color:var(--gold);}
   .gender-note{font-size:12px;color:var(--gray);margin-top:10px;font-style:italic;}
 
-  .athletics-section { margin-top: 20px; }
+  .athletics-section { margin-top:20px; }
   .athletics-section h3 { font-size:14px;font-weight:600;color:var(--navy);margin-bottom:4px; }
   .athletics-hint { font-size:12px;color:var(--gray);margin-bottom:10px; }
   .athletics-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px; }
-  .event-chip {
-    display:flex;align-items:center;gap:6px;padding:10px 12px;
+  .event-chip { display:flex;align-items:center;gap:6px;padding:10px 12px;
     border:2px solid #e5e7eb;border-radius:10px;background:var(--cream);cursor:pointer;
-    transition:all 0.2s;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:var(--navy);
-    position: relative;
-  }
+    transition:all 0.2s;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;color:var(--navy);position:relative; }
   .event-chip .e-icon{font-size:16px;}
   .event-chip:hover{border-color:var(--gold);background:#fdf8ee;}
-  .event-chip.selected{
-    border-color:var(--gold);background:linear-gradient(135deg,#fdf8ee,#fff8e0);
-    box-shadow:0 0 0 2px rgba(201,168,76,0.2);
-  }
-  .event-chip .check-badge {
-    display:none;position:absolute;top:-6px;right:-6px;
+  .event-chip.selected{border-color:var(--gold);background:linear-gradient(135deg,#fdf8ee,#fff8e0);box-shadow:0 0 0 2px rgba(201,168,76,0.2);}
+  .event-chip .check-badge { display:none;position:absolute;top:-6px;right:-6px;
     width:16px;height:16px;background:var(--gold);border-radius:50%;
-    font-size:9px;color:var(--navy);align-items:center;justify-content:center;font-weight:700;
-  }
+    font-size:9px;color:var(--navy);align-items:center;justify-content:center;font-weight:700; }
   .event-chip.selected .check-badge { display:flex; }
-
-  .selected-events-count {
-    margin-top:10px;padding:8px 12px;background:rgba(201,168,76,0.1);
-    border:1px solid rgba(201,168,76,0.3);border-radius:8px;
-    font-size:12px;color:var(--navy);display:none;
-  }
+  .selected-events-count { margin-top:10px;padding:8px 12px;background:rgba(201,168,76,0.1);
+    border:1px solid rgba(201,168,76,0.3);border-radius:8px;font-size:12px;color:var(--navy);display:none; }
   .selected-events-count.show { display:block; }
 
   .level-options{display:flex;flex-direction:column;gap:10px;}
-  .level-btn {
-    display:flex;align-items:center;gap:14px;padding:16px 18px;
+  .level-btn { display:flex;align-items:center;gap:14px;padding:16px 18px;
     border:2px solid #e5e7eb;border-radius:14px;background:var(--cream);cursor:pointer;
-    transition:all 0.2s;font-family:'DM Sans',sans-serif;color:var(--navy);text-align:left;
-  }
+    transition:all 0.2s;font-family:'DM Sans',sans-serif;color:var(--navy);text-align:left; }
   .level-icon{font-size:24px;}
   .level-text strong{display:block;font-size:14px;font-weight:600;margin-bottom:2px;}
   .level-text span{font-size:12px;color:var(--gray);}
   .level-btn:hover{border-color:var(--gold);background:#fdf8ee;}
   .level-btn.selected{border-color:var(--gold);background:linear-gradient(135deg,#fdf8ee,#fff8e0);box-shadow:0 0 0 3px rgba(201,168,76,0.2);}
 
-  .field { margin-bottom: 16px; }
+  .field { margin-bottom:16px; }
   .field label { display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;letter-spacing:0.3px; }
-  .field input, .field select {
-    width:100%;padding:13px 16px;border:2px solid #e5e7eb;border-radius:12px;
+  .field input, .field select { width:100%;padding:13px 16px;border:2px solid #e5e7eb;border-radius:12px;
     font-family:'DM Sans',sans-serif;font-size:14px;color:var(--navy);background:var(--cream);
-    transition:border-color 0.2s;outline:none;appearance:none;
-  }
+    transition:border-color 0.2s;outline:none;appearance:none; }
   .field input:focus,.field select:focus{border-color:var(--gold);background:#fff;}
   .field input::placeholder{color:#aaa;}
 
   .cursos-list { display:flex;flex-direction:column;gap:10px; }
   .curso-row { display:flex;align-items:center;gap:8px; }
-  .curso-row select {
-    flex:1;padding:12px 14px;border:2px solid #e5e7eb;border-radius:12px;
+  .curso-row select { flex:1;padding:12px 14px;border:2px solid #e5e7eb;border-radius:12px;
     font-family:'DM Sans',sans-serif;font-size:14px;color:var(--navy);background:var(--cream);
-    outline:none;appearance:none;transition:border-color 0.2s;
-  }
+    outline:none;appearance:none;transition:border-color 0.2s; }
   .curso-row select:focus{border-color:var(--gold);background:#fff;}
-  .btn-remove-curso {
-    width:34px;height:34px;border-radius:50%;border:2px solid #e5e7eb;background:#fff;
+  .btn-remove-curso { width:34px;height:34px;border-radius:50%;border:2px solid #e5e7eb;background:#fff;
     color:var(--red);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;
-    transition:all 0.2s;flex-shrink:0;
-  }
+    transition:all 0.2s;flex-shrink:0; }
   .btn-remove-curso:hover{border-color:var(--red);background:#fff0f0;}
-  .btn-add-curso {
-    display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:9px 16px;
+  .btn-add-curso { display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:9px 16px;
     border:2px dashed rgba(201,168,76,0.5);border-radius:10px;background:rgba(201,168,76,0.05);
-    color:var(--gold);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
-    cursor:pointer;transition:all 0.2s;
-  }
+    color:var(--gold);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s; }
   .btn-add-curso:hover{border-color:var(--gold);background:rgba(201,168,76,0.12);}
 
-  .submit-btn {
-    width:100%;padding:18px;background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  .submit-btn { width:100%;padding:18px;background:linear-gradient(135deg,var(--gold),var(--gold-light));
     color:var(--navy);font-family:'Playfair Display',serif;font-size:18px;font-weight:700;
     border:none;border-radius:16px;cursor:pointer;transition:all 0.25s;
-    box-shadow:0 6px 20px rgba(201,168,76,0.35);letter-spacing:0.3px;margin-top:8px;
-  }
+    box-shadow:0 6px 20px rgba(201,168,76,0.35);letter-spacing:0.3px;margin-top:8px; }
   .submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,168,76,0.45);}
   .submit-btn:active{transform:translateY(0);}
 
@@ -226,44 +151,75 @@
   .required-mark{color:var(--red);margin-left:2px;}
   .error-msg{color:var(--red);font-size:12px;margin-top:6px;display:none;}
   .error-msg.show{display:block;}
-
-  .selected-summary {
-    margin-top:14px;padding:12px 16px;background:rgba(201,168,76,0.08);
-    border:1px solid rgba(201,168,76,0.3);border-radius:10px;font-size:13px;color:var(--navy);display:none;
-  }
+  .selected-summary{margin-top:14px;padding:12px 16px;background:rgba(201,168,76,0.08);
+    border:1px solid rgba(201,168,76,0.3);border-radius:10px;font-size:13px;color:var(--navy);display:none;}
   .selected-summary.show{display:block;}
 
-  .contact-card {
-    display:none;margin-top:16px;padding:16px 18px;
-    background:linear-gradient(135deg,#f0f7ff,#e8f0fe);
-    border:1.5px solid #b8d0f5;border-radius:14px;
-  }
+  .contact-card{display:none;margin-top:16px;padding:16px 18px;
+    background:linear-gradient(135deg,#f0f7ff,#e8f0fe);border:1.5px solid #b8d0f5;border-radius:14px;}
   .contact-card.show{display:block;}
-  .contact-card-title {
-    font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-    color:#4a6fa5;margin-bottom:10px;
-  }
-  .contact-person {
-    display:flex;align-items:center;gap:10px;padding:8px 0;
-    border-bottom:1px solid rgba(74,111,165,0.15);
-  }
+  .contact-card-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4a6fa5;margin-bottom:10px;}
+  .contact-person{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(74,111,165,0.15);}
   .contact-person:last-child{border-bottom:none;padding-bottom:0;}
-  .contact-avatar {
-    width:34px;height:34px;border-radius:50%;background:#4a6fa5;
-    color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;
-  }
-  .contact-info { flex:1; }
+  .contact-avatar{width:34px;height:34px;border-radius:50%;background:#4a6fa5;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .contact-info{flex:1;}
   .contact-name{font-size:13px;font-weight:600;color:#1e3a5f;line-height:1.3;}
   .contact-phone{font-size:12px;color:#4a6fa5;margin-top:1px;}
-  .contact-wa {
-    display:inline-flex;align-items:center;gap:4px;padding:5px 10px;
+  .contact-wa{display:inline-flex;align-items:center;gap:4px;padding:5px 10px;
     background:#25d366;color:#fff;border-radius:8px;font-size:11px;font-weight:600;
-    text-decoration:none;flex-shrink:0;transition:background 0.2s;
-  }
+    text-decoration:none;flex-shrink:0;transition:background 0.2s;}
   .contact-wa:hover{background:#1ebe5d;}
+
+  /* ADMIN */
+  .admin-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:1000;
+    align-items:flex-start; justify-content:center; padding:20px; overflow-y:auto; }
+  .admin-overlay.open { display:flex; }
+  .admin-panel { background:var(--white); border-radius:20px; width:100%; max-width:900px;
+    padding:28px; box-shadow:0 20px 60px rgba(0,0,0,0.4); margin:auto; }
+  .admin-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+  .admin-header h2 { font-family:'Playfair Display',serif; font-size:22px; color:var(--navy); }
+  .admin-close { width:36px;height:36px;border-radius:50%;border:2px solid #e5e7eb;background:#fff;
+    font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--gray);transition:all 0.2s; }
+  .admin-close:hover{border-color:var(--red);color:var(--red);}
+  .admin-stats { display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:12px; margin-bottom:20px; }
+  .stat-box { background:var(--cream); border-radius:12px; padding:14px 16px; text-align:center; }
+  .stat-num { font-family:'Playfair Display',serif; font-size:28px; font-weight:700; color:var(--navy); }
+  .stat-label { font-size:11px; color:var(--gray); margin-top:4px; font-weight:500; text-transform:uppercase; letter-spacing:0.8px; }
+  .admin-actions { display:flex; gap:10px; margin-bottom:18px; flex-wrap:wrap; }
+  .btn-dl { display:inline-flex;align-items:center;gap:6px;padding:10px 18px;
+    border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.2s; }
+  .btn-csv { background:var(--green); color:#fff; }
+  .btn-csv:hover { background:#219a52; }
+  .btn-clear { background:#fef2f2; color:var(--red); border:1.5px solid #fca5a5; }
+  .btn-clear:hover { background:#fee2e2; }
+  .admin-table-wrap { overflow-x:auto; border-radius:12px; border:1.5px solid #e5e7eb; }
+  .admin-table { width:100%; border-collapse:collapse; font-size:12px; }
+  .admin-table th { background:var(--navy); color:var(--gold); padding:10px 14px; text-align:left;
+    font-weight:600; letter-spacing:0.5px; white-space:nowrap; }
+  .admin-table td { padding:10px 14px; border-bottom:1px solid #f0f0f0; color:var(--navy); vertical-align:top; white-space:nowrap; }
+  .admin-table tr:last-child td { border-bottom:none; }
+  .admin-table tr:nth-child(even) td { background:#fafafa; }
+  .badge { display:inline-block; padding:3px 8px; border-radius:100px; font-size:11px; font-weight:600; }
+  .badge-sport { background:rgba(13,27,42,0.1); color:var(--navy); }
+  .badge-nivel-basico { background:#dcfce7; color:#166534; }
+  .badge-nivel-intermedio { background:#fef9c3; color:#854d0e; }
+  .badge-nivel-avanzado { background:#fee2e2; color:#991b1b; }
+  .empty-state { text-align:center; padding:40px; color:var(--gray); font-size:14px; }
+  .admin-password-wrap { display:flex; flex-direction:column; align-items:center; gap:16px; padding:20px 0; }
+  .admin-password-wrap input { padding:12px 16px; border:2px solid #e5e7eb; border-radius:12px;
+    font-family:'DM Sans',sans-serif; font-size:14px; width:260px; outline:none; text-align:center; letter-spacing:4px; }
+  .admin-password-wrap input:focus { border-color:var(--gold); }
+  .btn-pw { padding:12px 28px; background:var(--navy); color:var(--gold); border:none; border-radius:12px;
+    font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; cursor:pointer; }
+  .pw-error { color:var(--red); font-size:13px; display:none; }
+  .pw-error.show { display:block; }
 </style>
 </head>
 <body>
+
+<div class="admin-nav">
+  <button class="btn-admin" onclick="openAdmin()">⚙ Panel Admin</button>
+</div>
 
 <div class="hero">
   <div class="rings">
@@ -273,196 +229,104 @@
   <div class="hero-tag">Colegio Cumbres</div>
   <h1>Olimpiadas<br>de <span>Padres</span></h1>
   <p class="hero-sub">Inscripción oficial de apoderados</p>
-  <div class="date-badge">
-    <div class="dot"></div>
-    28 y 29 de Noviembre 2026
-  </div>
+  <div class="date-badge"><div class="dot"></div>28 y 29 de Noviembre 2026</div>
 </div>
 
-<div class="form-wrap">
+<div class="form-wrap" id="form-wrap">
 
-  <!-- 1. ¿Participar? -->
   <div class="card" id="card-participar">
     <div class="card-number">1</div>
     <h2>¿Deseas participar en las Olimpiadas?</h2>
     <p class="hint">Este evento es exclusivo para apoderados del Colegio Cumbres.</p>
     <div class="participate-options">
-      <button class="participate-btn" onclick="selectParticipate('si', this)">
-        <span class="icon">🏅</span>Sí, quiero participar
-      </button>
-      <button class="participate-btn" onclick="selectParticipate('no', this)">
-        <span class="icon">❌</span>No puedo participar
-      </button>
+      <button class="participate-btn" onclick="selectParticipate('si',this)"><span class="icon">🏅</span>Sí, quiero participar</button>
+      <button class="participate-btn" onclick="selectParticipate('no',this)"><span class="icon">❌</span>No puedo participar</button>
     </div>
     <p class="error-msg" id="err-participar">Por favor selecciona una opción.</p>
   </div>
 
   <div id="rest-form" class="hidden">
 
-    <!-- 2. Deporte -->
     <div class="card">
       <div class="card-number">2</div>
       <h2>¿En qué disciplina quieres competir?</h2>
       <p class="hint">Selecciona el deporte de tu preferencia.<span class="required-mark">*</span></p>
       <div class="sports-grid">
-        <div class="sport-card" onclick="selectSport('atletismo',this)" data-sport="atletismo" data-gender="both">
-          <span class="sport-icon">🏃</span>Atletismo
-        </div>
-        <div class="sport-card" onclick="selectSport('futbol',this)" data-sport="futbol" data-gender="both">
-          <span class="sport-icon">⚽</span>Fútbol
-        </div>
-        <div class="sport-card" onclick="selectSport('naciones',this)" data-sport="naciones" data-gender="none">
-          <span class="sport-icon">🌎</span>Naciones
-        </div>
-        <div class="sport-card" onclick="selectSport('basquetbol',this)" data-sport="basquetbol" data-gender="men">
-          <span class="sport-icon">🏀</span>Básquetbol<br><small style="color:#aaa;font-size:10px">(Varones)</small>
-        </div>
-        <div class="sport-card" onclick="selectSport('voleibol',this)" data-sport="voleibol" data-gender="men">
-          <span class="sport-icon">🏐</span>Voleibol<br><small style="color:#aaa;font-size:10px">(Varones)</small>
-        </div>
-        <div class="sport-card" onclick="selectSport('tenis',this)" data-sport="tenis" data-gender="none">
-          <span class="sport-icon">🎾</span>Tenis
-        </div>
-        <div class="sport-card" onclick="selectSport('padel',this)" data-sport="padel" data-gender="none">
-          <span class="sport-icon">🏓</span>Pádel
-        </div>
-        <div class="sport-card" onclick="selectSport('tenis-mesa',this)" data-sport="tenis-mesa" data-gender="none">
-          <span class="sport-icon">🏓</span>Tenis de Mesa
-        </div>
-        <div class="sport-card" onclick="selectSport('ajedrez',this)" data-sport="ajedrez" data-gender="none">
-          <span class="sport-icon">♟️</span>Ajedrez
-        </div>
+        <div class="sport-card" onclick="selectSport('atletismo',this)" data-sport="atletismo" data-gender="both"><span class="sport-icon">🏃</span>Atletismo</div>
+        <div class="sport-card" onclick="selectSport('futbol',this)" data-sport="futbol" data-gender="both"><span class="sport-icon">⚽</span>Fútbol</div>
+        <div class="sport-card" onclick="selectSport('naciones',this)" data-sport="naciones" data-gender="none"><span class="sport-icon">🌎</span>Naciones</div>
+        <div class="sport-card" onclick="selectSport('basquetbol',this)" data-sport="basquetbol" data-gender="men"><span class="sport-icon">🏀</span>Básquetbol<br><small style="color:#aaa;font-size:10px">(Varones)</small></div>
+        <div class="sport-card" onclick="selectSport('voleibol',this)" data-sport="voleibol" data-gender="men"><span class="sport-icon">🏐</span>Voleibol<br><small style="color:#aaa;font-size:10px">(Varones)</small></div>
+        <div class="sport-card" onclick="selectSport('tenis',this)" data-sport="tenis" data-gender="none"><span class="sport-icon">🎾</span>Tenis</div>
+        <div class="sport-card" onclick="selectSport('padel',this)" data-sport="padel" data-gender="none"><span class="sport-icon">🏓</span>Pádel</div>
+        <div class="sport-card" onclick="selectSport('tenis-mesa',this)" data-sport="tenis-mesa" data-gender="none"><span class="sport-icon">🏓</span>Tenis de Mesa</div>
+        <div class="sport-card" onclick="selectSport('ajedrez',this)" data-sport="ajedrez" data-gender="none"><span class="sport-icon">♟️</span>Ajedrez</div>
       </div>
-
-      <!-- Género -->
       <div id="gender-section" class="hidden" style="margin-top:20px;">
         <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:8px;">Categoría<span class="required-mark">*</span></p>
         <div class="gender-row" id="gender-options"></div>
         <p class="gender-note" id="gender-note"></p>
       </div>
-
-      <!-- Eventos de Atletismo — MULTI-SELECT -->
       <div id="athletics-section" class="athletics-section hidden">
         <h3>Prueba(s) de Atletismo<span class="required-mark">*</span></h3>
         <p class="athletics-hint">Puedes seleccionar una o más pruebas en las que competirás.</p>
         <div class="athletics-grid">
-          <div class="event-chip" onclick="toggleEvent('50m',this)">
-            <span class="e-icon">⚡</span>50 metros
-            <span class="check-badge">✓</span>
-          </div>
-          <div class="event-chip" onclick="toggleEvent('100m',this)">
-            <span class="e-icon">🏃</span>100 metros
-            <span class="check-badge">✓</span>
-          </div>
-          <div class="event-chip" onclick="toggleEvent('posta',this)">
-            <span class="e-icon">🔁</span>Posta
-            <span class="check-badge">✓</span>
-          </div>
-          <div class="event-chip" onclick="toggleEvent('400m',this)">
-            <span class="e-icon">🏟️</span>400 metros
-            <span class="check-badge">✓</span>
-          </div>
-          <div class="event-chip" onclick="toggleEvent('800m',this)">
-            <span class="e-icon">🌀</span>800 metros
-            <span class="check-badge">✓</span>
-          </div>
-          <div class="event-chip" onclick="toggleEvent('3000m',this)">
-            <span class="e-icon">🏔️</span>3.000 metros
-            <span class="check-badge">✓</span>
-          </div>
-          <div class="event-chip" onclick="toggleEvent('salto-largo',this)">
-            <span class="e-icon">📏</span>Salto largo
-            <span class="check-badge">✓</span>
-          </div>
-          <div class="event-chip" onclick="toggleEvent('salto-alto',this)">
-            <span class="e-icon">📐</span>Salto alto
-            <span class="check-badge">✓</span>
-          </div>
-          <div class="event-chip" onclick="toggleEvent('pelotita',this)">
-            <span class="e-icon">🎾</span>Pelotita
-            <span class="check-badge">✓</span>
-          </div>
+          <div class="event-chip" onclick="toggleEvent('50m',this)"><span class="e-icon">⚡</span>50 metros<span class="check-badge">✓</span></div>
+          <div class="event-chip" onclick="toggleEvent('100m',this)"><span class="e-icon">🏃</span>100 metros<span class="check-badge">✓</span></div>
+          <div class="event-chip" onclick="toggleEvent('posta',this)"><span class="e-icon">🔁</span>Posta<span class="check-badge">✓</span></div>
+          <div class="event-chip" onclick="toggleEvent('400m',this)"><span class="e-icon">🏟️</span>400 metros<span class="check-badge">✓</span></div>
+          <div class="event-chip" onclick="toggleEvent('800m',this)"><span class="e-icon">🌀</span>800 metros<span class="check-badge">✓</span></div>
+          <div class="event-chip" onclick="toggleEvent('3000m',this)"><span class="e-icon">🏔️</span>3.000 metros<span class="check-badge">✓</span></div>
+          <div class="event-chip" onclick="toggleEvent('salto-largo',this)"><span class="e-icon">📏</span>Salto largo<span class="check-badge">✓</span></div>
+          <div class="event-chip" onclick="toggleEvent('salto-alto',this)"><span class="e-icon">📐</span>Salto alto<span class="check-badge">✓</span></div>
+          <div class="event-chip" onclick="toggleEvent('pelotita',this)"><span class="e-icon">🎾</span>Pelotita<span class="check-badge">✓</span></div>
         </div>
         <div class="selected-events-count" id="selected-events-count"></div>
         <p class="error-msg" id="err-evento">Por favor selecciona al menos una prueba de atletismo.</p>
       </div>
-
       <p class="error-msg" id="err-deporte">Por favor selecciona un deporte.</p>
       <div class="selected-summary" id="sport-summary"></div>
-
-      <!-- Contacto coordinador por disciplina -->
       <div class="contact-card" id="contact-card">
         <div class="contact-card-title">📋 Coordinador/a de esta disciplina</div>
         <div id="contact-persons"></div>
       </div>
     </div>
 
-    <!-- 3. Nivel -->
     <div class="card">
       <div class="card-number">3</div>
       <h2>¿Cuál es tu nivel en este deporte?</h2>
-      <p class="hint">¡Esto nos ayuda a organizar mejor las categorías!<span class="required-mark">*</span></p>
+      <p class="hint">Esto nos ayuda a organizar mejor las categorías.<span class="required-mark">*</span></p>
       <div class="level-options">
-        <button class="level-btn" onclick="selectLevel('basico',this)">
-          <span class="level-icon">🌱</span>
-          <div class="level-text"><strong>Básico</strong><span>Nunca lo he practicado</span></div>
-        </button>
-        <button class="level-btn" onclick="selectLevel('intermedio',this)">
-          <span class="level-icon">⚡</span>
-          <div class="level-text"><strong>Intermedio</strong><span>Lo practico regularmente</span></div>
-        </button>
-        <button class="level-btn" onclick="selectLevel('avanzado',this)">
-          <span class="level-icon">🏆</span>
-          <div class="level-text"><strong>Avanzado</strong><span>Tengo nivel avanzado, participo en campeonatos</span></div>
-        </button>
+        <button class="level-btn" onclick="selectLevel('Básico',this)"><span class="level-icon">🌱</span><div class="level-text"><strong>Básico</strong><span>Nunca lo he practicado</span></div></button>
+        <button class="level-btn" onclick="selectLevel('Intermedio',this)"><span class="level-icon">⚡</span><div class="level-text"><strong>Intermedio</strong><span>Lo practico regularmente</span></div></button>
+        <button class="level-btn" onclick="selectLevel('Avanzado',this)"><span class="level-icon">🏆</span><div class="level-text"><strong>Avanzado</strong><span>Tengo nivel avanzado, participo en campeonatos</span></div></button>
       </div>
       <p class="error-msg" id="err-nivel">Por favor selecciona tu nivel.</p>
     </div>
 
-    <!-- 4. Datos de contacto -->
     <div class="card">
       <div class="card-number">4</div>
       <h2>Datos de contacto</h2>
       <p class="hint">Te contactaremos con información del evento.</p>
-      <div class="field">
-        <label>Nombre completo<span class="required-mark">*</span></label>
-        <input type="text" id="nombre" placeholder="Nombre y apellido">
-        <p class="error-msg" id="err-nombre">Ingresa tu nombre completo.</p>
-      </div>
-      <div class="field">
-        <label>RUT<span class="required-mark">*</span></label>
-        <input type="text" id="rut" placeholder="12.345.678-9" maxlength="12" oninput="formatRut(this)">
-        <p class="error-msg" id="err-rut">Ingresa un RUT válido.</p>
-      </div>
-      <div class="field">
-        <label>Correo electrónico<span class="required-mark">*</span></label>
-        <input type="email" id="email" placeholder="nombre@correo.com">
-        <p class="error-msg" id="err-email">Ingresa un correo válido.</p>
-      </div>
-      <div class="field">
-        <label>Teléfono / WhatsApp<span class="required-mark">*</span></label>
-        <input type="tel" id="telefono" placeholder="+56 9 1234 5678">
-        <p class="error-msg" id="err-telefono">Ingresa tu teléfono.</p>
-      </div>
+      <div class="field"><label>Nombre completo<span class="required-mark">*</span></label><input type="text" id="nombre" placeholder="Nombre y apellido"><p class="error-msg" id="err-nombre">Ingresa tu nombre completo.</p></div>
+      <div class="field"><label>RUT<span class="required-mark">*</span></label><input type="text" id="rut" placeholder="12.345.678-9" maxlength="12" oninput="formatRut(this)"><p class="error-msg" id="err-rut">Ingresa un RUT válido.</p></div>
+      <div class="field"><label>Correo electrónico<span class="required-mark">*</span></label><input type="email" id="email" placeholder="nombre@correo.com"><p class="error-msg" id="err-email">Ingresa un correo válido.</p></div>
+      <div class="field"><label>Teléfono / WhatsApp<span class="required-mark">*</span></label><input type="tel" id="telefono" placeholder="+56 9 1234 5678"><p class="error-msg" id="err-telefono">Ingresa tu teléfono.</p></div>
     </div>
 
-    <!-- 5. Cursos hijos (múltiple) -->
     <div class="card">
       <div class="card-number">5</div>
       <h2>Curso(s) de tus hijos/as</h2>
-      <p class="hint">Indica el curso de cada hijo/a que tengas en el colegio. Puedes agregar más de uno.<span class="required-mark">*</span></p>
+      <p class="hint">Indica el curso de cada hijo/a. Puedes agregar más de uno.<span class="required-mark">*</span></p>
       <div class="cursos-list" id="cursos-list"></div>
-      <button class="btn-add-curso" onclick="addCursoRow()">
-        ＋ Agregar otro hijo/a
-      </button>
+      <button class="btn-add-curso" onclick="addCursoRow()">＋ Agregar otro hijo/a</button>
       <p class="error-msg" id="err-curso">Por favor indica al menos un curso.</p>
     </div>
 
     <button class="submit-btn" onclick="submitForm()">¡Inscribirme en las Olimpiadas! 🏅</button>
 
-  </div><!-- /rest-form -->
+  </div>
 
-  <!-- NO PARTICIPA -->
   <div id="no-participa" class="hidden">
     <div class="card" style="text-align:center;padding:40px 28px;">
       <div style="font-size:48px;margin-bottom:16px;">😢</div>
@@ -471,322 +335,330 @@
     </div>
   </div>
 
-</div><!-- /form-wrap -->
+</div>
+
+<!-- ADMIN OVERLAY -->
+<div class="admin-overlay" id="admin-overlay">
+  <div class="admin-panel">
+    <div class="admin-header">
+      <h2>📊 Panel de Inscripciones</h2>
+      <button class="admin-close" onclick="closeAdmin()">×</button>
+    </div>
+    <div id="pw-gate">
+      <div class="admin-password-wrap">
+        <p style="font-size:14px;color:var(--gray);">Ingresa la contraseña de administrador</p>
+        <input type="password" id="pw-input" placeholder="••••••" onkeydown="if(event.key==='Enter')checkPw()">
+        <button class="btn-pw" onclick="checkPw()">Acceder</button>
+        <p class="pw-error" id="pw-error">Contraseña incorrecta.</p>
+      </div>
+    </div>
+    <div id="admin-dashboard" class="hidden">
+      <div class="admin-stats" id="admin-stats"></div>
+      <div class="admin-actions">
+        <button class="btn-dl btn-csv" onclick="downloadCSV()">⬇ Descargar CSV</button>
+        <button class="btn-dl btn-clear" onclick="clearData()">🗑 Borrar registros locales</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>#</th><th>Fecha</th><th>Nombre</th><th>RUT</th><th>Email</th><th>Teléfono</th><th>Deporte</th><th>Categoría</th><th>Prueba(s) Atl.</th><th>Nivel</th><th>Cursos</th></tr></thead>
+          <tbody id="admin-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
-  const CURSOS = [
-    'Bambolino','Playgroup',
-    'Pre-Kinder','Kinder',
-    '1° Básico','2° Básico','3° Básico','4° Básico',
-    '5° Básico','6° Básico','7° Básico','8° Básico',
-    '1° Medio','2° Medio','3° Medio','4° Medio'
-  ];
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwb5YPbFSZXlccr24w_NAiBdnGYk_0N41SafpV-7czX7wdwLtPQR30eELu5OsrmpfXo/exec';
+const ADMIN_PASSWORD = 'cumbres2026';
+const STORAGE_KEY = 'olimpiadas_cumbres_2026';
 
-  const CONTACTS = {
-    'atletismo': [{ name: 'Verónica Valenzuela', phone: '+56953722334' }],
-    'futbol':    [{ name: 'Cecilia Longueira', phone: '+56994489334' }, { name: 'Francisco Villar', phone: '+56983608324' }],
-    'naciones':  [{ name: 'Anita Vial', phone: '+56981990921' }],
-    'basquetbol':[{ name: 'Carlos Suspichiatti', phone: '+56994778494' }],
-    'voleibol':  [{ name: 'Cristián Beltramin', phone: '+56977575095' }],
-    'tenis':     [{ name: 'Melanie Forsch', phone: '+56979855253' }],
-    'padel':     [{ name: 'M° Ester Matus', phone: '+56996436055' }],
-    'tenis-mesa':[{ name: 'Marina Schorr', phone: '+56939569616' }],
-    'ajedrez':   [{ name: 'Marina Schorr', phone: '+56939569616' }],
+const CURSOS = ['Bambolino','Playgroup','Pre-Kinder','Kinder',
+  '1° Básico','2° Básico','3° Básico','4° Básico',
+  '5° Básico','6° Básico','7° Básico','8° Básico',
+  '1° Medio','2° Medio','3° Medio','4° Medio'];
+
+const CONTACTS = {
+  atletismo:   [{name:'Verónica Valenzuela',phone:'+56953722334'}],
+  futbol:      [{name:'Cecilia Longueira',phone:'+56994489334'},{name:'Francisco Villar',phone:'+56983608324'}],
+  naciones:    [{name:'Anita Vial',phone:'+56981990921'}],
+  basquetbol:  [{name:'Carlos Suspichiatti',phone:'+56994778494'}],
+  voleibol:    [{name:'Cristián Beltramin',phone:'+56977575095'}],
+  tenis:       [{name:'Melanie Forsch',phone:'+56979855253'}],
+  padel:       [{name:'M° Ester Matus',phone:'+56996436055'}],
+  'tenis-mesa':[{name:'Marina Schorr',phone:'+56939569616'}],
+  ajedrez:     [{name:'Marina Schorr',phone:'+56939569616'}],
+};
+
+const SPORT_NAMES = {atletismo:'Atletismo',futbol:'Fútbol',naciones:'Naciones',
+  basquetbol:'Básquetbol',voleibol:'Voleibol',tenis:'Tenis',padel:'Pádel',
+  'tenis-mesa':'Tenis de Mesa',ajedrez:'Ajedrez'};
+
+const EVENT_NAMES = {'50m':'50 metros','100m':'100 metros',posta:'Posta','400m':'400 metros',
+  '800m':'800 metros','3000m':'3.000 metros','salto-largo':'Salto largo','salto-alto':'Salto alto',pelotita:'Pelotita'};
+
+function getRecords() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]'); } catch { return []; } }
+
+function saveRecord(rec) {
+  const all = getRecords(); all.push(rec);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  const iframeName = 'gs_iframe_' + Date.now();
+  const iframe = document.createElement('iframe');
+  iframe.name = iframeName;
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+  const form = document.createElement('form');
+  form.method = 'GET';
+  form.action = APPS_SCRIPT_URL;
+  form.target = iframeName;
+  Object.entries(rec).forEach(([k,v]) => {
+    const inp = document.createElement('input');
+    inp.type = 'hidden'; inp.name = k; inp.value = String(v||'');
+    form.appendChild(inp);
+  });
+  document.body.appendChild(form);
+  form.submit();
+  setTimeout(() => {
+    try { document.body.removeChild(form); document.body.removeChild(iframe); } catch(e){}
+  }, 5000);
+}
+
+let state = { participa:null, deporte:null, deporteGender:null, genero:null, eventos:[], nivel:null };
+let cursoCount = 0;
+
+function makeCursoOptions() {
+  return '<option value="">— Selecciona el curso —</option>'+CURSOS.map(c=>`<option value="${c}">${c}</option>`).join('');
+}
+function addCursoRow(removable=true) {
+  cursoCount++;
+  const id=`curso-${cursoCount}`, row=document.createElement('div');
+  row.className='curso-row'; row.id=`row-${id}`;
+  row.innerHTML=`<select id="${id}">${makeCursoOptions()}</select>
+    ${removable?`<button class="btn-remove-curso" onclick="removeCursoRow('row-${id}')">×</button>`:''}`;
+  document.getElementById('cursos-list').appendChild(row);
+}
+function removeCursoRow(rowId) {
+  if (document.querySelectorAll('.curso-row').length<=1) return;
+  document.getElementById(rowId)?.remove();
+}
+addCursoRow(false);
+
+function selectParticipate(val,el) {
+  state.participa=val;
+  document.querySelectorAll('.participate-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('err-participar').classList.remove('show');
+  document.getElementById('rest-form').classList.toggle('hidden',val!=='si');
+  document.getElementById('no-participa').classList.toggle('hidden',val==='si');
+}
+
+function selectSport(sport,el) {
+  state.deporte=sport; state.genero=null; state.eventos=[];
+  document.querySelectorAll('.sport-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('err-deporte').classList.remove('show');
+  const genderType=el.dataset.gender; state.deporteGender=genderType;
+  const gSec=document.getElementById('gender-section');
+  const athSec=document.getElementById('athletics-section');
+  athSec.classList.add('hidden');
+  document.querySelectorAll('.event-chip').forEach(c=>c.classList.remove('selected'));
+  document.getElementById('selected-events-count').classList.remove('show');
+  if (genderType==='both') {
+    gSec.classList.remove('hidden');
+    document.getElementById('gender-options').innerHTML=`
+      <button class="gender-btn" onclick="selectGender('Damas',this)">👩 Damas</button>
+      <button class="gender-btn" onclick="selectGender('Varones',this)">👨 Varones</button>`;
+    document.getElementById('gender-note').textContent='';
+  } else if (genderType==='men') {
+    gSec.classList.remove('hidden');
+    document.getElementById('gender-options').innerHTML=`<button class="gender-btn selected">👨 Varones</button>`;
+    state.genero='Varones';
+    document.getElementById('gender-note').textContent='* Esta disciplina es solo para varones.';
+  } else { gSec.classList.add('hidden'); state.genero='Mixto'; }
+  if (sport==='atletismo'&&genderType!=='both') athSec.classList.remove('hidden');
+  updateSportSummary(); showContactCard(sport);
+}
+
+function selectGender(gender,el) {
+  state.genero=gender;
+  document.querySelectorAll('.gender-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  if (state.deporte==='atletismo') document.getElementById('athletics-section').classList.remove('hidden');
+  updateSportSummary();
+}
+
+function toggleEvent(evt,el) {
+  const idx=state.eventos.indexOf(evt);
+  if (idx===-1){state.eventos.push(evt);el.classList.add('selected');}
+  else{state.eventos.splice(idx,1);el.classList.remove('selected');}
+  document.getElementById('err-evento').classList.remove('show');
+  updateEventsCount(); updateSportSummary();
+}
+
+function updateEventsCount() {
+  const counter=document.getElementById('selected-events-count');
+  if (state.eventos.length===0){counter.classList.remove('show');return;}
+  const names=state.eventos.map(e=>EVENT_NAMES[e]).join(', ');
+  counter.innerHTML=`✅ <strong>${state.eventos.length} prueba${state.eventos.length>1?'s':''} seleccionada${state.eventos.length>1?'s':''}:</strong> ${names}`;
+  counter.classList.add('show');
+}
+
+function updateSportSummary() {
+  const s=document.getElementById('sport-summary');
+  if (!state.deporte){s.classList.remove('show');return;}
+  let txt=`✅ <strong>${SPORT_NAMES[state.deporte]}</strong>`;
+  if (state.genero&&state.genero!=='Mixto') txt+=` · <strong>${state.genero}</strong>`;
+  if (state.eventos.length>0) txt+=` · Prueba${state.eventos.length>1?'s':''}: <strong>${state.eventos.map(e=>EVENT_NAMES[e]).join(', ')}</strong>`;
+  s.innerHTML=txt; s.classList.add('show');
+}
+
+function selectLevel(level,el) {
+  state.nivel=level;
+  document.querySelectorAll('.level-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('err-nivel').classList.remove('show');
+}
+
+function showContactCard(sport) {
+  const card=document.getElementById('contact-card');
+  const list=CONTACTS[sport];
+  if (!list){card.classList.remove('show');return;}
+  document.getElementById('contact-persons').innerHTML=list.map(p=>{
+    const wa=`https://wa.me/${p.phone.replace(/\D/g,'')}`;
+    const ini=p.name.split(' ').slice(0,2).map(w=>w[0]).join('').toUpperCase();
+    return `<div class="contact-person">
+      <div class="contact-avatar">${ini}</div>
+      <div class="contact-info"><div class="contact-name">${p.name}</div><div class="contact-phone">${p.phone}</div></div>
+      <a class="contact-wa" href="${wa}" target="_blank">💬 WhatsApp</a>
+    </div>`;
+  }).join('');
+  card.classList.add('show');
+}
+
+function formatRut(input) {
+  let v=input.value.replace(/[^0-9kK]/g,'').toUpperCase();
+  if (!v){input.value='';return;}
+  const dv=v.slice(-1),body=v.slice(0,-1).replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+  input.value=body?body+'-'+dv:dv;
+}
+
+function validarRut(rut) {
+  const c=rut.replace(/[^0-9kK]/g,'').toUpperCase();
+  if (c.length<2) return false;
+  const dv=c.slice(-1),body=c.slice(0,-1);
+  let sum=0,mul=2;
+  for (let i=body.length-1;i>=0;i--){sum+=parseInt(body[i])*mul;mul=mul===7?2:mul+1;}
+  const exp=11-(sum%11);
+  return dv===(exp===11?'0':exp===10?'K':String(exp));
+}
+
+function submitForm() {
+  let valid=true;
+  const show=(id,msg)=>{const e=document.getElementById(id);if(msg)e.textContent=msg;e.classList.add('show');valid=false;};
+  const hide=id=>document.getElementById(id).classList.remove('show');
+
+  if (!state.participa) show('err-participar');
+  if (!state.deporte) show('err-deporte','Por favor selecciona un deporte.'); else hide('err-deporte');
+  if (state.deporteGender==='both'&&!state.genero) show('err-deporte','Por favor selecciona deporte y categoría.');
+  if (state.deporte==='atletismo'&&state.eventos.length===0) show('err-evento'); else hide('err-evento');
+  if (!state.nivel) show('err-nivel'); else hide('err-nivel');
+
+  const nombre=document.getElementById('nombre').value.trim();
+  const rut=document.getElementById('rut').value.trim();
+  const email=document.getElementById('email').value.trim();
+  const telefono=document.getElementById('telefono').value.trim();
+
+  if (!nombre) show('err-nombre'); else hide('err-nombre');
+  if (!rut||!validarRut(rut)) show('err-rut'); else hide('err-rut');
+  if (!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) show('err-email'); else hide('err-email');
+  if (!telefono) show('err-telefono'); else hide('err-telefono');
+
+  const cursosSeleccionados=Array.from(document.querySelectorAll('.curso-row select')).map(s=>s.value).filter(Boolean);
+  if (cursosSeleccionados.length===0) show('err-curso'); else hide('err-curso');
+
+  if (!valid){document.querySelector('.error-msg.show')?.scrollIntoView({behavior:'smooth',block:'center'});return;}
+
+  const record = {
+    id: Date.now(),
+    fecha: new Date().toLocaleString('es-CL'),
+    nombre, rut, email, telefono,
+    deporte: SPORT_NAMES[state.deporte]||state.deporte,
+    categoria: state.genero||'Mixto',
+    prueba_atletismo: state.eventos.length>0 ? state.eventos.map(e=>EVENT_NAMES[e]).join(' | ') : '',
+    nivel: state.nivel,
+    cursos: cursosSeleccionados.join(' | ')
   };
+  saveRecord(record);
 
-  const eventNames = {
-    '50m':'50 metros','100m':'100 metros','posta':'Posta','400m':'400 metros',
-    '800m':'800 metros','3000m':'3.000 metros','salto-largo':'Salto largo',
-    'salto-alto':'Salto alto','pelotita':'Pelotita'
-  };
+  document.getElementById('form-wrap').innerHTML=`
+    <div class="success-screen show">
+      <div class="success-icon">🥇</div>
+      <h2>¡Inscripción exitosa!</h2>
+      <p>Gracias, <strong>${nombre}</strong>, por inscribirte en las<br>
+      <strong>Olimpiadas de Padres 2026</strong>.<br><br>
+      🏅 <strong>${record.deporte}${record.categoria!=='Mixto'?' · '+record.categoria:''}${record.prueba_atletismo?' · '+record.prueba_atletismo:''}</strong><br>
+      📚 Curso(s): <strong>${record.cursos}</strong><br><br>
+      Te contactaremos pronto al correo<br><strong>${email}</strong><br><br>
+      <strong>28 y 29 de Noviembre · Colegio Cumbres 2026</strong></p>
+    </div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
 
-  function getInitials(name) {
-    return name.split(' ').slice(0,2).map(w => w[0]).join('').toUpperCase();
-  }
-
-  function showContactCard(sport) {
-    const card = document.getElementById('contact-card');
-    const persons = document.getElementById('contact-persons');
-    const list = CONTACTS[sport];
-    if (!list) { card.classList.remove('show'); return; }
-    persons.innerHTML = list.map(p => {
-      const waNum = p.phone.replace(/\D/g,'');
-      const waUrl = `https://wa.me/${waNum}`;
-      return `
-        <div class="contact-person">
-          <div class="contact-avatar">${getInitials(p.name)}</div>
-          <div class="contact-info">
-            <div class="contact-name">${p.name}</div>
-            <div class="contact-phone">${p.phone}</div>
-          </div>
-          <a class="contact-wa" href="${waUrl}" target="_blank">💬 WhatsApp</a>
-        </div>`;
-    }).join('');
-    card.classList.add('show');
-  }
-
-  let state = {
-    participa: null,
-    deporte: null,
-    deporteGender: null,
-    genero: null,
-    eventos: [],
-    nivel: null
-  };
-
-  let cursoCount = 0;
-
-  function makeCursoOptions() {
-    return `<option value="">— Selecciona el curso —</option>` +
-      CURSOS.map(c => `<option value="${c}">${c}</option>`).join('');
-  }
-
-  function addCursoRow(removable = true) {
-    cursoCount++;
-    const id = `curso-${cursoCount}`;
-    const row = document.createElement('div');
-    row.className = 'curso-row';
-    row.id = `row-${id}`;
-    row.innerHTML = `
-      <select id="${id}">${makeCursoOptions()}</select>
-      ${removable ? `<button class="btn-remove-curso" onclick="removeCursoRow('row-${id}')" title="Eliminar">×</button>` : ''}
-    `;
-    document.getElementById('cursos-list').appendChild(row);
-  }
-
-  function removeCursoRow(rowId) {
-    const rows = document.querySelectorAll('.curso-row');
-    if (rows.length <= 1) return;
-    document.getElementById(rowId)?.remove();
-  }
-
-  addCursoRow(false);
-
-  function selectParticipate(val, el) {
-    state.participa = val;
-    document.querySelectorAll('.participate-btn').forEach(b => b.classList.remove('selected'));
-    el.classList.add('selected');
-    document.getElementById('err-participar').classList.remove('show');
-    if (val === 'si') {
-      document.getElementById('rest-form').classList.remove('hidden');
-      document.getElementById('no-participa').classList.add('hidden');
-    } else {
-      document.getElementById('rest-form').classList.add('hidden');
-      document.getElementById('no-participa').classList.remove('hidden');
-    }
-  }
-
-  function selectSport(sport, el) {
-    state.deporte = sport;
-    state.genero = null;
-    state.eventos = [];
-    document.querySelectorAll('.sport-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    document.getElementById('err-deporte').classList.remove('show');
-
-    const genderType = el.dataset.gender;
-    state.deporteGender = genderType;
-
-    const gSection = document.getElementById('gender-section');
-    const gOptions = document.getElementById('gender-options');
-    const gNote = document.getElementById('gender-note');
-    const athSection = document.getElementById('athletics-section');
-
-    athSection.classList.add('hidden');
-    document.querySelectorAll('.event-chip').forEach(c => c.classList.remove('selected'));
-    document.getElementById('selected-events-count').classList.remove('show');
-
-    if (genderType === 'both') {
-      gSection.classList.remove('hidden');
-      gOptions.innerHTML = `
-        <button class="gender-btn" onclick="selectGender('damas',this)">👩 Damas</button>
-        <button class="gender-btn" onclick="selectGender('varones',this)">👨 Varones</button>
-      `;
-      gNote.textContent = '';
-    } else if (genderType === 'men') {
-      gSection.classList.remove('hidden');
-      gOptions.innerHTML = `<button class="gender-btn selected">👨 Varones</button>`;
-      state.genero = 'varones';
-      gNote.textContent = '* Esta disciplina es solo para varones.';
-    } else {
-      gSection.classList.add('hidden');
-      state.genero = 'mixto';
-    }
-
-    if (sport === 'atletismo' && genderType !== 'both') {
-      athSection.classList.remove('hidden');
-    }
-
-    updateSportSummary();
-    showContactCard(sport);
-  }
-
-  function selectGender(gender, el) {
-    state.genero = gender;
-    document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('selected'));
-    el.classList.add('selected');
-    if (state.deporte === 'atletismo') {
-      document.getElementById('athletics-section').classList.remove('hidden');
-    }
-    updateSportSummary();
-  }
-
-  function toggleEvent(evt, el) {
-    const idx = state.eventos.indexOf(evt);
-    if (idx === -1) {
-      state.eventos.push(evt);
-      el.classList.add('selected');
-    } else {
-      state.eventos.splice(idx, 1);
-      el.classList.remove('selected');
-    }
-    document.getElementById('err-evento').classList.remove('show');
-    updateEventsCount();
-    updateSportSummary();
-  }
-
-  function updateEventsCount() {
-    const counter = document.getElementById('selected-events-count');
-    if (state.eventos.length === 0) {
-      counter.classList.remove('show');
-    } else {
-      const names = state.eventos.map(e => eventNames[e]).join(', ');
-      counter.innerHTML = `✅ <strong>${state.eventos.length} prueba${state.eventos.length > 1 ? 's' : ''} seleccionada${state.eventos.length > 1 ? 's' : ''}:</strong> ${names}`;
-      counter.classList.add('show');
-    }
-  }
-
-  function updateSportSummary() {
-    const summary = document.getElementById('sport-summary');
-    if (!state.deporte) { summary.classList.remove('show'); return; }
-    const names = {
-      'atletismo':'Atletismo','futbol':'Fútbol','naciones':'Naciones',
-      'basquetbol':'Básquetbol','voleibol':'Voleibol','tenis':'Tenis',
-      'padel':'Pádel','tenis-mesa':'Tenis de Mesa','ajedrez':'Ajedrez'
-    };
-    let txt = `✅ <strong>${names[state.deporte]}</strong>`;
-    if (state.genero && state.genero !== 'mixto') {
-      txt += ` · <strong>${state.genero.charAt(0).toUpperCase()+state.genero.slice(1)}</strong>`;
-    }
-    if (state.eventos.length > 0) {
-      txt += ` · Prueba${state.eventos.length > 1 ? 's' : ''}: <strong>${state.eventos.map(e => eventNames[e]).join(', ')}</strong>`;
-    }
-    summary.innerHTML = txt;
-    summary.classList.add('show');
-  }
-
-  function selectLevel(level, el) {
-    state.nivel = level;
-    document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('selected'));
-    el.classList.add('selected');
-    document.getElementById('err-nivel').classList.remove('show');
-  }
-
-  function formatRut(input) {
-    let val = input.value.replace(/[^0-9kK]/g, '').toUpperCase();
-    if (val.length === 0) { input.value = ''; return; }
-    const dv = val.slice(-1);
-    let body = val.slice(0, -1);
-    body = body.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    input.value = body ? body + '-' + dv : dv;
-  }
-
-  function validarRut(rut) {
-    const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
-    if (clean.length < 2) return false;
-    const dv = clean.slice(-1);
-    const body = clean.slice(0, -1);
-    let sum = 0, mul = 2;
-    for (let i = body.length - 1; i >= 0; i--) {
-      sum += parseInt(body[i]) * mul;
-      mul = mul === 7 ? 2 : mul + 1;
-    }
-    const expected = 11 - (sum % 11);
-    const dvCalc = expected === 11 ? '0' : expected === 10 ? 'K' : String(expected);
-    return dv === dvCalc;
-  }
-
-  function submitForm() {
-    let valid = true;
-
-    if (!state.participa) {
-      document.getElementById('err-participar').classList.add('show'); valid = false;
-    }
-    if (!state.deporte) {
-      document.getElementById('err-deporte').classList.add('show'); valid = false;
-    }
-    if (state.deporteGender === 'both' && !state.genero) {
-      document.getElementById('err-deporte').textContent = 'Por favor selecciona deporte y categoría.';
-      document.getElementById('err-deporte').classList.add('show'); valid = false;
-    }
-    if (state.deporte === 'atletismo' && state.eventos.length === 0) {
-      document.getElementById('err-evento').classList.add('show'); valid = false;
-    }
-    if (!state.nivel) {
-      document.getElementById('err-nivel').classList.add('show'); valid = false;
-    }
-
-    const nombre = document.getElementById('nombre').value.trim();
-    const rut = document.getElementById('rut').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-
-    if (!nombre) { document.getElementById('err-nombre').classList.add('show'); valid = false; }
-    else document.getElementById('err-nombre').classList.remove('show');
-
-    if (!rut || !validarRut(rut)) { document.getElementById('err-rut').classList.add('show'); valid = false; }
-    else document.getElementById('err-rut').classList.remove('show');
-
-    const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email || !emailReg.test(email)) { document.getElementById('err-email').classList.add('show'); valid = false; }
-    else document.getElementById('err-email').classList.remove('show');
-
-    if (!telefono) { document.getElementById('err-telefono').classList.add('show'); valid = false; }
-    else document.getElementById('err-telefono').classList.remove('show');
-
-    const cursoSelects = document.querySelectorAll('.curso-row select');
-    const cursosSeleccionados = Array.from(cursoSelects).map(s => s.value).filter(Boolean);
-    if (cursosSeleccionados.length === 0) {
-      document.getElementById('err-curso').classList.add('show'); valid = false;
-    } else {
-      document.getElementById('err-curso').classList.remove('show');
-    }
-
-    if (!valid) {
-      document.querySelector('.error-msg.show')?.scrollIntoView({ behavior:'smooth', block:'center' });
-      return;
-    }
-
-    const sportNames = {
-      'atletismo':'Atletismo','futbol':'Fútbol','naciones':'Naciones',
-      'basquetbol':'Básquetbol','voleibol':'Voleibol','tenis':'Tenis',
-      'padel':'Pádel','tenis-mesa':'Tenis de Mesa','ajedrez':'Ajedrez'
-    };
-    const deporteLabel = sportNames[state.deporte] || state.deporte;
-    const generoLabel = (state.genero && state.genero !== 'mixto') ? ` · ${state.genero.charAt(0).toUpperCase()+state.genero.slice(1)}` : '';
-    const eventosLabel = state.eventos.length > 0
-      ? ` · Prueba${state.eventos.length > 1 ? 's' : ''}: ${state.eventos.map(e => eventNames[e]).join(', ')}`
-      : '';
-    const cursosLabel = cursosSeleccionados.join(', ');
-
-    document.querySelector('.form-wrap').innerHTML = `
-      <div class="success-screen show">
-        <div class="success-icon">🥇</div>
-        <h2>¡Inscripción exitosa!</h2>
-        <p>Gracias, <strong>${nombre}</strong>, por inscribirte en las<br>
-        <strong>Olimpiadas de Padres 2026</strong>.<br><br>
-        🏅 <strong>${deporteLabel}${generoLabel}${eventosLabel}</strong><br>
-        📚 Curso(s): <strong>${cursosLabel}</strong><br><br>
-        Te contactaremos pronto al<br><strong>${email}</strong><br><br>
-        <strong>28 y 29 de Noviembre · Colegio Cumbres 2026</strong></p>
-      </div>
-    `;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+// ADMIN
+let adminUnlocked=false;
+function openAdmin() {
+  document.getElementById('admin-overlay').classList.add('open');
+  document.getElementById('pw-gate').style.display=adminUnlocked?'none':'block';
+  document.getElementById('admin-dashboard').classList.toggle('hidden',!adminUnlocked);
+  document.getElementById('pw-input').value='';
+  document.getElementById('pw-error').classList.remove('show');
+  if (adminUnlocked) renderDashboard();
+}
+function closeAdmin(){document.getElementById('admin-overlay').classList.remove('open');}
+function checkPw() {
+  if (document.getElementById('pw-input').value===ADMIN_PASSWORD) {
+    adminUnlocked=true;
+    document.getElementById('pw-gate').style.display='none';
+    document.getElementById('admin-dashboard').classList.remove('hidden');
+    renderDashboard();
+  } else { document.getElementById('pw-error').classList.add('show'); }
+}
+function renderDashboard() {
+  const records=getRecords();
+  const byDeporte={};
+  records.forEach(r=>{byDeporte[r.deporte]=(byDeporte[r.deporte]||0)+1;});
+  const top=Object.entries(byDeporte).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById('admin-stats').innerHTML=`
+    <div class="stat-box"><div class="stat-num">${records.length}</div><div class="stat-label">Inscritos totales</div></div>
+    <div class="stat-box"><div class="stat-num">${Object.keys(byDeporte).length}</div><div class="stat-label">Disciplinas activas</div></div>
+    <div class="stat-box"><div class="stat-num">${top?top[1]:0}</div><div class="stat-label">Más popular: ${top?top[0]:'—'}</div></div>
+    <div class="stat-box"><div class="stat-num">${records.filter(r=>r.nivel==='Avanzado').length}</div><div class="stat-label">Nivel avanzado</div></div>`;
+  const tbody=document.getElementById('admin-tbody');
+  if (records.length===0){tbody.innerHTML=`<tr><td colspan="11" class="empty-state">No hay inscripciones aún.</td></tr>`;return;}
+  tbody.innerHTML=records.map((r,i)=>{
+    const nc=r.nivel==='Básico'?'badge-nivel-basico':r.nivel==='Intermedio'?'badge-nivel-intermedio':'badge-nivel-avanzado';
+    return `<tr><td>${i+1}</td><td>${r.fecha}</td><td><strong>${r.nombre}</strong></td><td>${r.rut}</td>
+      <td>${r.email}</td><td>${r.telefono}</td><td><span class="badge badge-sport">${r.deporte}</span></td>
+      <td>${r.categoria}</td><td>${r.prueba_atletismo||'—'}</td><td><span class="badge ${nc}">${r.nivel}</span></td><td>${r.cursos}</td></tr>`;
+  }).join('');
+}
+function downloadCSV() {
+  const records=getRecords();
+  if (records.length===0){alert('No hay inscripciones para descargar.');return;}
+  const headers=['N°','Fecha','Nombre','RUT','Email','Teléfono','Deporte','Categoría','Prueba(s) Atletismo','Nivel','Cursos'];
+  const rows=records.map((r,i)=>[i+1,r.fecha,r.nombre,r.rut,r.email,r.telefono,r.deporte,r.categoria,r.prueba_atletismo||'',r.nivel,r.cursos]);
+  const csv=[headers,...rows].map(row=>row.map(c=>`"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob=new Blob(['\uFEFF'+csv],{type:'text/csv;charset=utf-8;'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=`inscritos_olimpiadas_cumbres_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();URL.revokeObjectURL(url);
+}
+function clearData() {
+  if (!confirm('¿Eliminar todos los registros locales? Los datos en Google Sheets no se borran.')) return;
+  localStorage.removeItem(STORAGE_KEY);renderDashboard();
+}
+document.getElementById('admin-overlay').addEventListener('click',function(e){if(e.target===this)closeAdmin();});
 </script>
 </body>
 </html>
-
-
-
-
